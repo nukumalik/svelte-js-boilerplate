@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import preprocess from 'svelte-preprocess';
 import alias from '@rollup/plugin-alias';
 import path from 'path';
+import json from 'rollup-plugin-json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -58,8 +59,12 @@ export default {
     resolve({
       browser: true,
       dedupe: ['svelte'],
-      extensions: ['.svelte', '.scss'],
+      extensions: ['.svelte', '.js', '.json', '.scss'],
+      jsnext: true,
+      main: true,
+      module: true,
     }),
+    json(),
     commonjs(),
     alias({
       entries: {
@@ -68,6 +73,7 @@ export default {
         layouts: path.resolve(path.resolve(__dirname), './src/layouts'),
         pages: path.resolve(path.resolve(__dirname), './src/pages'),
         static: path.resolve(path.resolve(__dirname), './src/static'),
+        store: path.resolve(path.resolve(__dirname), './src/store'),
         themes: path.resolve(path.resolve(__dirname), './src/themes'),
         utils: path.resolve(path.resolve(__dirname), './src/utils'),
       },

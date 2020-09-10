@@ -1,0 +1,25 @@
+.wrapper {
+  background-color: #eeeeee;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 0.8rem;
+  padding: 3rem;
+  text-align: center;
+
+  img {
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.title-page {
+  margin: 5rem auto;
+  width: fit-content;
+}
